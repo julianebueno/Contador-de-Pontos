@@ -62,6 +62,13 @@ listaPontos.addEventListener('click', (event) => {
     }
 
     scoreSpan.textContent = score;
+    const playerName = li.querySelector('.name').textContent;
+    const player = players.find(p => p.name === playerName);
+    if (player) {
+      player.score = score;
+    }
+    localStorage.setItem('players', JSON.stringify(players));
+    renderPlayers();
   }
 });
 
